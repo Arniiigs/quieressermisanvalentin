@@ -15,6 +15,11 @@
             background-color: pink;
             text-align: center;
             padding: 20px;
+            overflow: hidden; /* Evita scroll innecesario */
+        }
+        h1 {
+            font-size: 2rem; /* Ajuste para móviles */
+            max-width: 90%;
         }
         .buttons {
             margin-top: 20px;
@@ -40,7 +45,9 @@
             display: none;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             width: 100%;
+            height: 100vh; /* Hace que el contenido llene la pantalla */
         }
         .images img {
             width: 90%;
@@ -49,14 +56,17 @@
             border-radius: 10px;
         }
         video {
-            margin-top: 20px;
+            margin-top: 10px;
             width: 90%;
             max-width: 500px;
             border-radius: 10px;
         }
 
-        /* Ajustes para móviles */
+        /* Ajustes para móviles en vertical */
         @media (max-width: 600px) {
+            body {
+                height: auto; /* Permite scroll si es necesario */
+            }
             .buttons {
                 flex-direction: column;
                 gap: 10px;
@@ -64,6 +74,16 @@
             button {
                 width: 80%;
                 max-width: 200px;
+            }
+            .content {
+                padding: 10px;
+                height: auto; /* Ajusta el contenido en móviles */
+            }
+            h1 {
+                font-size: 1.8rem; /* Reduce el tamaño del título */
+            }
+            video {
+                max-height: 40vh; /* Evita que el video ocupe toda la pantalla */
             }
         }
     </style>
@@ -80,7 +100,7 @@
             <img src="Imagen de WhatsApp 2025-02-10 a las 20.44.40_f1bf214a.jpg" alt="Foto 1">
             <img src="Imagen de WhatsApp 2025-02-10 a las 20.44.22_f9612152.jpg" alt="Foto 2">
         </div>
-        <video controls>
+        <video autoplay muted playsinline controls>
             <source src="monke flip HD EXTENDED VERSION.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de videos.
         </video>
